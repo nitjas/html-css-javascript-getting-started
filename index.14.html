@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        display: flex;
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 0.75em;
+      }
+      .card {
+        border: 1px solid #ccc;
+        margin: 1em 0 0 1em;
+        padding: 1em;
+      }
+      ul {
+        display: flex;
+        margin-top: 1em;
+        list-style: none;
+      }
+      li {
+        margin-right: 0.5em;
+      }
+      a {
+        padding: 0.25em;
+        background-color: rgb(179, 207, 236);
+        color: rgb(16, 119, 221);
+      }
+    </style>
+  </head>
+  <body>
+    <!-- section#craig-shoemaker.card>h1+ul>(li>a.tag)*2 -->
+    <section id="craig-shoemaker" class="card">
+      <h1>Craig Shoemaker</h1>
+      <ul>
+        <li>
+          <a href="https://twitter.com/craigshoemaker" class="tag">Twitter</a>
+        </li>
+        <li>
+          <a href="https://github.com/craigshoemaker" class="tag">GitHub</a>
+        </li>
+      </ul>
+    </section>
+    <section id="john-papa" class="card">
+      <h1>John Papa</h1>
+      <ul>
+        <li><a href="https://twitter.com/john_papa" class="tag">Twitter</a></li>
+        <li><a href="https://github.com/johnpapa" class="tag">GitHub</a></li>
+      </ul>
+    </section>
+    <button id="click_me">Click Me</button></p>
+    <script>
+      window.addEventListener("DOMContentLoaded", (e) => {
+        console.log("Loaded!");
+
+        let btn = document.querySelector("#click_me");
+        btn.addEventListener("click", (e) => {
+          console.log("Click!");
+        });
+      });
+
+      window.addEventListener("orientationchange", (e) => {
+          let screen = window.screen;
+          let angle = screen.orientation.angle;
+          let type = screen.orientation.type;
+          console.log(`${angle} & ${type}`);
+      });
+      let links = document.querySelectorAll(".tag");
+      links.forEach((l) => l.setAttribute("target", "_blank"));
+    </script>
+  </body>
+</html>
